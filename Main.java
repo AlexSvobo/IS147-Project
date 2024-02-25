@@ -6,9 +6,11 @@ public class Main {
     public static void main(String[] args) {
 
 
-            final double TAX_RATE = 0.10;
+            final double FEE_RATE = 0.25;
+            int debtAmount;
             byte age, hours, payRate;
-            String name, fullTime;
+            String name, address, creditor, hardship; 
+            char fullTime;
 
 
             System.out.println("Welcome to the IS147 Project System!\nPlease follow the instructions provided on the screen\n----------------------------");
@@ -24,7 +26,7 @@ public class Main {
             System.out.print("Press F for full time or P for part time ?: ");
             fullTime = input.next();
 
-            System.out.print("How many hours did you work this week?: ");
+            System.out.print("What is your total balance : ");
             hours = input.nextByte();
 
             System.out.print("What is your hourly pay rate?: ");
