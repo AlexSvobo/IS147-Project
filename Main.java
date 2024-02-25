@@ -11,7 +11,7 @@ public class Main {
             String name, fullTime;
 
 
-            System.out.println("Welcome to the IS147 Payroll System in JAVA\nPlease follow the instructions provided on the screen\n------------------------------------------------");
+            System.out.println("Welcome to the IS147 Project System!\nPlease follow the instructions provided on the screen\n----------------------------");
 
             Scanner input = new Scanner(System.in);
             // Prompt the user to enter their name
