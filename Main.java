@@ -15,26 +15,23 @@ public class Main {
 
             System.out.println("Welcome to the IS147 Project System!\nPlease follow the instructions provided on the screen\n----------------------------");
 
-            // Prompt the user to enter their name
+            // Prompt the user to enter their information
             System.out.print("Enter the total debt amount: $");
             int totalDebt = input.nextLine();
 
             System.out.print("What is your age?: ");
             byte age = input.nextByte();
 
-            System.out.print("Press F for full time or P for part time ?: ");
-            fullTime = input.next();
+            System.out.print("Have you experienced any financial hardship?: Y/N");
+            boolean hardship = input.next();
 
             System.out.print("What is your hourly pay rate?: ");
             payRate = input.nextByte();
 
             System.out.println("*****************************************");
-            System.out.println("Hello, " + name+ " You are: " + age + " years old");
-            System.out.println("Your Employment Status is: " +  fullTime);
+            System.out.println("Hello, You are: " + age + " years old");
+            System.out.println("Your total debt amount is: " +  totalDebt);
             System.out.println("Vacation request: true");
-            System.out.println("Your Tax Rate:" + TAX_RATE);
-            System.out.println("Pay Rate per hour: $" +payRate);
-            System.out.println("Hours worked: " + hours);
 
             double grossPay = payRate*hours;
             System.out.println("Gross Pay: $" + grossPay);
