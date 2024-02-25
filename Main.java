@@ -4,30 +4,26 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
+            Scanner input = new Scanner(System.in);
 
             final double FEE_RATE = 0.25;
-            int debtAmount;
-            byte age, hours, payRate;
+            byte hours, payRate;
+            boolean delinquent;
             String name, address, creditor, hardship; 
             char fullTime;
 
 
             System.out.println("Welcome to the IS147 Project System!\nPlease follow the instructions provided on the screen\n----------------------------");
 
-            Scanner input = new Scanner(System.in);
             // Prompt the user to enter their name
-            System.out.print("What is your name?: ");
-            name = input.nextLine();
+            System.out.print("Enter the total debt amount: $");
+            int totalDebt = input.nextLine();
 
             System.out.print("What is your age?: ");
-            age = input.nextByte();
+            byte age = input.nextByte();
 
             System.out.print("Press F for full time or P for part time ?: ");
             fullTime = input.next();
-
-            System.out.print("What is your total balance : ");
-            hours = input.nextByte();
 
             System.out.print("What is your hourly pay rate?: ");
             payRate = input.nextByte();
