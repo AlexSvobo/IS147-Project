@@ -8,7 +8,7 @@ public class Main {
 
             final double FEE_RATE = 0.25;
             byte hours, payRate;
-            boolean delinquent;
+            boolean delinquent, unsecured;
             String name, address, creditor, hardship; 
             char fullTime;
 
@@ -19,8 +19,8 @@ public class Main {
             System.out.print("Enter the total debt amount: $");
             int totalDebt = input.nextLine();
 
-            System.out.print("What is your age?: ");
-            byte age = input.nextByte();
+            System.out.print("Are you seeking help with unsecured debts?: Y/N");
+            boolean unsecured = input.next();
 
             System.out.print("Have you experienced any financial hardship?: Y/N");
             boolean hardship = input.next();
@@ -29,10 +29,15 @@ public class Main {
             payRate = input.nextByte();
 
             System.out.println("*****************************************");
-            System.out.println("Hello, You are: " + age + " years old");
+            System.out.println("Hello, ");
             System.out.println("Your total debt amount is: " +  totalDebt);
-            System.out.println("Vacation request: true");
+            System.out.println("Is this correct? Y/N");
 
+
+
+        // Remainder of code is not being used, just holding for ease of coding. 
+        // this should be where we start a loop asking the client to enter their creditor information, inserting this into a table
+        // we will need to create different files, classes, and perform these loops through those and then call them here to meet project qualifications.
             double grossPay = payRate*hours;
             System.out.println("Gross Pay: $" + grossPay);
 
