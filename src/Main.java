@@ -8,7 +8,7 @@ public class Main {
 
             final double FEE_RATE = 0.25;
             byte hours, payRate;
-            boolean delinquent, unsecured;
+            char delinquent, unsecured;
             String name, address, creditor, hardship; 
             char fullTime;
 
@@ -17,21 +17,36 @@ public class Main {
 
             // Prompt the user to enter their information
             System.out.print("Enter the total debt amount: $");
+            while (!input.hasNextInt()) {
+                System.out.println("Invalid input. Please enter a number");
+                input.next();
+            }
             int totalDebt = input.nextLine();
 
             System.out.print("Are you seeking help with unsecured debts?: Y/N");
-            boolean unsecured = input.next();
+            char unsecured = input.next().charAt(0);
+            while (unsecured != 'Y' && unsecured != 'N') {
+                System.out.println("Invalid input. Please type Y or N");
+                unsecured = input.next().charAt(0);
+            }
 
             System.out.print("Have you experienced any financial hardship?: Y/N");
-            boolean hardship = input.next();
+            char hardship = input.next().charAt(0);
+            while (hardship != 'Y' && hardship != 'N') {
+                System.out.println("Invalid input. Please type Y or N");
+                hardship = input.next().charAt(0);
+            }
 
-            System.out.print("What is your hourly pay rate?: ");
-            payRate = input.nextByte();
 
             System.out.println("*****************************************");
             System.out.println("Hello, ");
             System.out.println("Your total debt amount is: " +  totalDebt);
             System.out.println("Is this correct? Y/N");
+            char correct = input.next().charAt(0);
+            while (correct != 'Y' && correct != 'N') {
+                System.out.println("Invalid input. Please type Y or N");
+                correct = input.next().charAt(0);
+            }
 
 
 
