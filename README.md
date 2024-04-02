@@ -1,5 +1,5 @@
 # IS147-Project
-
+### Debt Relief Team: Mohammed Mustafa-Developer, Alex Svoboda-Developer, Mahir Ishtiaq-Developer, Tahir Ahmad-Project Manager
 
 Debt settlement is a hardship-based debt relief program whereas individuals will enroll their unsecured debts such as credit cards, medical bills, and unsecured loans in order to have someone negotiate with their creditors on their behalf. The goal of debt settlement is to obtain a payoff amount, and schedule, that is favorable for the client. Overall, debt settlement seeks to provide a way for individuals affected by financial hardship to pay back their debts in a reasonable manner without being penalized with fees and interest for too long.
 
@@ -10,4 +10,4 @@ Additional pieces of debt settlement will included as needed to ensure project r
 
 EXAMPLE: Debts enrolled will typically be settled for 50% or less of the original balance enrolled. The fee for arranging the settlement is 25% of the original balance enrolled. This encourages the settlement team to obtain the lowest settlement amounts possible. Overall, some enrolling $10,000 of debt should end the program paying $7500. Program lengths are typically no longer than 48 months and monthly deposits are no less than $250/month. With this type of program, the $10,000 client will be debt free in 30 months at $250/month -- an amount that is also typically less than their monthly minimum payments. 
 
-### Team A: Mohammed Mustafa, Alex Svoboda, Mahir Ishtiaq, Tahir Ahmad
+
