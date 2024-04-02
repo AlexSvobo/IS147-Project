@@ -9,3 +9,5 @@ This program should be able to obtain client and creditor information via consol
 Additional pieces of debt settlement will included as needed to ensure project requirements are fulfilled.
 
 EXAMPLE: Debts enrolled will typically be settled for 50% or less of the original balance enrolled. The fee for arranging the settlement is 25% of the original balance enrolled. This encourages the settlement team to obtain the lowest settlement amounts possible. Overall, some enrolling $10,000 of debt should end the program paying $7500. Program lengths are typically no longer than 48 months and monthly deposits are no less than $250/month. With this type of program, the $10,000 client will be debt free in 30 months at $250/month -- an amount that is also typically less than their monthly minimum payments. 
+
+### Team A: Mohammed Mustafa, Alex Svoboda, Mahir Ishtiaq, Tahir Ahmad
