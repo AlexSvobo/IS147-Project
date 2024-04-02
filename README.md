@@ -1,5 +1,5 @@
 # IS147-Project
-Debt Settlement Qualification & Estimator Tool: 
+Debt Settlement Qualification & Estimator Tool:   
 Mohammed Mustafa-Developer  
 Alex Svoboda-Project Manager  
 Mahir Ishtiaq-Tester  
