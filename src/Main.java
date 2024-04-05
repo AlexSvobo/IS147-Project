@@ -8,25 +8,26 @@ public class Main {
 
             final double FEE_RATE = 0.25;
             byte hours, payRate;
-            boolean delinquent, unsecured;
-            String name, address, creditor, hardship; 
+            boolean delinquent, hardship;
+            String name, address, creditor;
             char fullTime;
 
 
-            System.out.println("Welcome to the IS147 Project System!\nPlease follow the instructions provided on the screen\n----------------------------");
+            System.out.println("Welcome to the Debt Settlement Qualification Tool!\n----------------------------");
 
             // Prompt the user to enter their information
             System.out.print("Enter the total debt amount: $");
-            int totalDebt = input.nextLine();
+            int totalDebt = input.nextInt();
 
             System.out.print("Are you seeking help with unsecured debts?: Y/N");
-            boolean unsecured = input.next();
+            String unsecured = input.nextLine();
+
 
             System.out.print("Have you experienced any financial hardship?: Y/N");
-            boolean hardship = input.next();
+            String hardship = input.nextLine();
 
-            System.out.print("What is your hourly pay rate?: ");
-            payRate = input.nextByte();
+
+            boolean qualifies = qualificationTool(totalDebt, unsecured, hardship)
 
             System.out.println("*****************************************");
             System.out.println("Hello, ");
@@ -40,14 +41,14 @@ public class Main {
         // we will need to create different files, classes, and perform these loops through those and then call them here to meet project qualifications.
             double grossPay = payRate*hours;
             System.out.println("Gross Pay: $" + grossPay);
-
-            double taxPaid = TAX_RATE*grossPay;
-            System.out.println("Tax paid: $" + taxPaid);
-            System.out.println("--------------------");
-
-            double netPay = grossPay-taxPaid;
-            System.out.println("Net pay: $" +netPay );
             System.out.println("*************************************************");
+
 
     }
 }
+
+        private static boolean qualificationTool(int totalDebt, boolean unsecured, boolean hardship) {
+
+
+                return totalDebt>=10000 && unsecured && hardship;
+        }
