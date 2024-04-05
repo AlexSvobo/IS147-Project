@@ -1,5 +1,6 @@
 //Alex Svoboda
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -7,10 +8,8 @@ public class Main {
             Scanner input = new Scanner(System.in);
 
             final double FEE_RATE = 0.25;
-            byte hours, payRate;
             boolean delinquent;
             String name, address, creditor, userInput;
-            char fullTime;
 
 
             System.out.println("Welcome to the Debt Settlement Qualification Tool!\n----------------------------");
@@ -35,7 +34,8 @@ public class Main {
             boolean qualifies = qualificationTool(totalDebt, unsecured, hardship);
 
             if (qualifies) {
-                    List<Creditor> creditors = enterCreditorInformation(sc);
+                    //start creating creditor profile, need to create class/loop
+                // List<Creditor> creditors = enterCreditorInformation(sc);
 
 
             }
@@ -50,7 +50,7 @@ public class Main {
 
             //change variables to match a client sided variable that contains their creditors
             //maybe there is a better way to transfer fee amount so that estimate/draft is accurate
-            int estimate = calculator.provideEstimate(totalDebt, FEE_RATE);
+            double estimate = calculator.provideEstimate(totalDebt, FEE_RATE);
 
 
     }
@@ -61,7 +61,7 @@ public class Main {
             return totalDebt>=10000 && unsecured && hardship;
     }
 
-    private static List<Creditor> enterCreditorInformation(Scanner sc) {
+    private static <Creditor> List<Creditor> enterCreditorInformation(Scanner sc) {
           CreditorManager creditorManager = new CreditorManager();
           return creditorManager.enterCreditorInformation(sc);
 
