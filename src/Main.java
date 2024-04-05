@@ -8,8 +8,8 @@ public class Main {
 
             final double FEE_RATE = 0.25;
             byte hours, payRate;
-            boolean delinquent, hardship;
-            String name, address, creditor;
+            boolean delinquent;
+            String name, address, creditor, userInput;
             char fullTime;
 
 
@@ -18,37 +18,54 @@ public class Main {
             // Prompt the user to enter their information
             System.out.print("Enter the total debt amount: $");
             int totalDebt = input.nextInt();
+            input.nextLine();
 
             System.out.print("Are you seeking help with unsecured debts?: Y/N");
-            String unsecured = input.nextLine();
+            userInput = input.nextLine();
+
+            boolean unsecured = userInput.equalsIgnoreCase("Y") || userInput.equalsIgnoreCase("yes") || userInput.equalsIgnoreCase("y");
+
 
 
             System.out.print("Have you experienced any financial hardship?: Y/N");
-            String hardship = input.nextLine();
+            userInput = input.nextLine();
+            boolean hardship = userInput.equalsIgnoreCase("Y") || userInput.equalsIgnoreCase("yes") || userInput.equalsIgnoreCase("y");
 
 
-            boolean qualifies = qualificationTool(totalDebt, unsecured, hardship)
+            boolean qualifies = qualificationTool(totalDebt, unsecured, hardship);
+
+            if (qualifies) {
+                    List<Creditor> creditors = enterCreditorInformation(sc);
+
+
+            }
 
             System.out.println("*****************************************");
             System.out.println("Hello, ");
             System.out.println("Your total debt amount is: " +  totalDebt);
-            System.out.println("Is this correct? Y/N");
+            System.out.println("Is this correct? Y/N " + qualifies);
 
 
+            DraftCalculator calculator = new DraftCalculator();
 
-        // Remainder of code is not being used, just holding for ease of coding. 
-        // this should be where we start a loop asking the client to enter their creditor information, inserting this into a table
-        // we will need to create different files, classes, and perform these loops through those and then call them here to meet project qualifications.
-            double grossPay = payRate*hours;
-            System.out.println("Gross Pay: $" + grossPay);
-            System.out.println("*************************************************");
+            //change variables to match a client sided variable that contains their creditors
+            //maybe there is a better way to transfer fee amount so that estimate/draft is accurate
+            int estimate = calculator.provideEstimate(totalDebt, FEE_RATE);
+
+
+    }
+
+    private static boolean qualificationTool(int totalDebt, boolean unsecured, boolean hardship) {
+
+
+            return totalDebt>=10000 && unsecured && hardship;
+    }
+
+    private static List<Creditor> enterCreditorInformation(Scanner sc) {
+          CreditorManager creditorManager = new CreditorManager();
+          return creditorManager.enterCreditorInformation(sc);
 
 
     }
 }
 
-        private static boolean qualificationTool(int totalDebt, boolean unsecured, boolean hardship) {
-
-
-                return totalDebt>=10000 && unsecured && hardship;
-        }
