@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class CreditorManager {
 
 
-    public <Creditor> List<Creditor> enterCreditorInformation(Scanner sc) {
+    public List<Creditor> enterCreditorInformation(Scanner sc) {
         List<Creditor> creditors = new ArrayList<>();
 
         while (true) {
@@ -16,15 +16,16 @@ public class CreditorManager {
 
             System.out.println("Please enter debt amount for " + creditorName + ": $");
             double debtAmount = sc.nextDouble();
+            sc.nextLine();
 
-            Creditor creditor = new Creditor(creditorName, debtAmount);
+            creditors.add(new Creditor(creditorName, debtAmount));
 
 
-            return creditors;
+
         }
 
 
 
-        return;
+        return creditors;
     }
 }

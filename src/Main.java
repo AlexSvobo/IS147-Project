@@ -1,5 +1,6 @@
 //Alex Svoboda
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -9,7 +10,7 @@ public class Main {
 
             final double FEE_RATE = 0.25;
             boolean delinquent;
-            String name, address, creditor, userInput;
+            String name, address, userInput;
 
 
             System.out.println("Welcome to the Debt Settlement Qualification Tool!\n----------------------------");
@@ -33,12 +34,22 @@ public class Main {
 
             boolean qualifies = qualificationTool(totalDebt, unsecured, hardship);
 
-            if (qualifies) {
-                    //start creating creditor profile, need to create class/loop
-                // List<Creditor> creditors = enterCreditorInformation(sc);
+            List<Creditor> creditors = new ArrayList<>();
 
+            if (qualifies) {
+
+                 creditors = enterCreditorInformation(input);
 
             }
+
+
+            //Resets original debt amount, uses loop/array to obtain true debt total.
+            totalDebt = 0;
+            for (Creditor creditor : creditors) {
+                totalDebt += creditor.getDebtAmount();
+            }
+
+
 
             System.out.println("*****************************************");
             System.out.println("Hello, ");
@@ -51,6 +62,21 @@ public class Main {
             //change variables to match a client sided variable that contains their creditors
             //maybe there is a better way to transfer fee amount so that estimate/draft is accurate
             double estimate = calculator.provideEstimate(totalDebt, FEE_RATE);
+            System.out.println("Your estimate is: " + estimate);
+
+            double monthlyDraft = calculator.provideMonthlyDraft(estimate);
+            System.out.println("Your monthly draft amount is: " + monthlyDraft);
+
+            double programLength = calculator.provideProgramLength(monthlyDraft, estimate);
+            System.out.println("Your program length is: " + programLength);
+
+
+            System.out.println("Your creditors:");
+            for (Creditor creditor : creditors) {
+                System.out.println(creditor.getName().substring(0, 1).toUpperCase() + creditor.getName().substring(1) + " " + ((int) creditor.getDebtAmount()));
+            }
+
+
 
 
     }
@@ -61,11 +87,9 @@ public class Main {
             return totalDebt>=10000 && unsecured && hardship;
     }
 
-    private static <Creditor> List<Creditor> enterCreditorInformation(Scanner sc) {
-          CreditorManager creditorManager = new CreditorManager();
-          return creditorManager.enterCreditorInformation(sc);
-
-
+    private static List<Creditor> enterCreditorInformation(Scanner sc) {
+        return new CreditorManager().enterCreditorInformation(sc);
     }
+
 }
 
