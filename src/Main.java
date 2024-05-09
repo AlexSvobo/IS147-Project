@@ -62,25 +62,30 @@ public class Main {
             //change variables to match a client sided variable that contains their creditors
             //maybe there is a better way to transfer fee amount so that estimate/draft is accurate
             double estimate = calculator.provideEstimate(totalDebt, FEE_RATE);
-            System.out.println("Your estimate is: " + estimate);
+            System.out.println("Your estimate is: " + estimate + ", including our fees.");
 
             double monthlyDraft = calculator.provideMonthlyDraft(estimate);
-            System.out.println("Your monthly draft amount is: " + monthlyDraft);
+            System.out.println("Your monthly draft amount is: $" + monthlyDraft);
 
             double programLength = calculator.provideProgramLength(monthlyDraft, estimate);
-            System.out.println("Your program length is: " + programLength);
+            System.out.println("Your program length is: " + programLength + "months.");
 
 
             System.out.println("Your creditors:");
             for (Creditor creditor : creditors) {
-                System.out.println(creditor.getName().substring(0, 1).toUpperCase() + creditor.getName().substring(1) + " " + ((int) creditor.getDebtAmount()));
+                System.out.println(creditor.getName().substring(0, 1).toUpperCase() + creditor.getName().substring(1) + " $" + ((int) creditor.getDebtAmount()));
             }
-
-
-
 
     }
 
+    /**
+     * Checks if the user qualifies for debt settlement based on total debt, unsecured debts, and financial hardship.
+     *
+     * @param totalDebt  total debt amount
+     * @param unsecured whether the debts are unsecured
+     * @param hardship  whether the user has experienced financial hardship
+     * @return true if the user qualifies, false otherwise
+     */
     private static boolean qualificationTool(int totalDebt, boolean unsecured, boolean hardship) {
 
 
