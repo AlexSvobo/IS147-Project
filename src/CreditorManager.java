@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class CreditorManager {
 
 
-    public List<Creditor> enterCreditorInformation(Scanner sc) {
+    public static List<Creditor> enterCreditorInformation(Scanner sc) {
         List<Creditor> creditors = new ArrayList<>();
 
         while (true) {
