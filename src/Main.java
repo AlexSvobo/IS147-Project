@@ -13,7 +13,8 @@ public class Main {
             Scanner input = new Scanner(System.in);
 
             final double FEE_RATE = 0.25;
-            int totalDebt = 0 ;
+            int totalDebt;
+            boolean unsecured, hardship;
             String userInput;
 
             System.out.println("Welcome to the Debt Settlement Qualification Tool!\n----------------------------");
@@ -29,13 +30,13 @@ public class Main {
                 System.out.println("Invalid input. Please enter a valid integer.");
             }
         }
-            input.nextLine(); // consume newline character
+
             while (true) {
                 System.out.print("Are you seeking help with unsecured debts?: Y/N");
                 userInput = input.nextLine();
 
                 if (userInput.equalsIgnoreCase("Y") || userInput.equalsIgnoreCase("N")) {
-                    boolean unsecured = userInput.equalsIgnoreCase("Y");
+                    unsecured = userInput.equalsIgnoreCase("Y");
                     break;
                 } else {
                     System.out.println("Invalid input. Please enter Y or N.");
@@ -45,25 +46,13 @@ public class Main {
                 System.out.print("Have you experienced any financial hardship?: Y/N");
                 userInput = input.nextLine();
                 if (userInput.equalsIgnoreCase("Y") || userInput.equalsIgnoreCase("N")) {
-                    boolean hardship = userInput.equalsIgnoreCase("Y");
+                    hardship = userInput.equalsIgnoreCase("Y");
                     break;
                 } else {
                     System.out.println("Invalid input. Please enter Y or N.");
                 }
             }
-                System.out.print("Enter the total debt amount: $");
-                totalDebt = input.nextInt();
-                input.nextLine();
 
-                System.out.print("Are you seeking help with unsecured debts?: Y/N");
-                userInput = input.nextLine();
-
-                boolean unsecured = userInput.equalsIgnoreCase("Y") || userInput.equalsIgnoreCase("yes") || userInput.equalsIgnoreCase("y");
-
-
-                System.out.print("Have you experienced any financial hardship?: Y/N");
-                userInput = input.nextLine();
-                boolean hardship = userInput.equalsIgnoreCase("Y") || userInput.equalsIgnoreCase("yes") || userInput.equalsIgnoreCase("y");
 
                 boolean qualifies = qualificationTool(totalDebt, unsecured, hardship);
 
@@ -79,7 +68,7 @@ public class Main {
                 //Resets original debt amount, uses loop/array to obtain true debt total.
                 totalDebt = 0;
                 for (Creditor creditor : creditors) {
-                    totalDebt += creditor.getDebtAmount();
+                    totalDebt += (int) creditor.getDebtAmount();
                 }
 
 
