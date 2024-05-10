@@ -1,4 +1,4 @@
-class Creditor {
+class Creditor extends CreditorEntity {
 
     private String name;
     private double debtAmount;
