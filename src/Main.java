@@ -81,7 +81,7 @@ public class Main {
     /**
      * Checks if the user qualifies for debt settlement based on total debt, unsecured debts, and financial hardship.
      *
-     * @param totalDebt  total debt amount
+     * @param totalDebt total debt amount
      * @param unsecured whether the debts are unsecured
      * @param hardship  whether the user has experienced financial hardship
      * @return true if the user qualifies, false otherwise
