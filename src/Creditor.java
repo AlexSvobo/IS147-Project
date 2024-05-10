@@ -5,6 +5,7 @@ class Creditor extends CreditorEntity {
     private double settlementPercentage;
 
     public Creditor(String name, double debtAmount) {
+        super();
         this.name = name;
         this.debtAmount = debtAmount;
 
@@ -16,5 +17,10 @@ class Creditor extends CreditorEntity {
 
     public String getName(){
         return name;
+    }
+
+    @Override
+    public void displayInfo() {
+
     }
 }

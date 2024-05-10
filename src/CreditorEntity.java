@@ -1,7 +1,7 @@
 public abstract class CreditorEntity {
     protected String name;
 
-    public CreditorEntity(String name) {
+    public CreditorEntity() {
         this.name = name;
     }
 
