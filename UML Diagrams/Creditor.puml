@@ -1,0 +1,11 @@
+@startuml
+class Creditor extends CreditorEntity {
+    - name: String
+    - debtAmount: double
+
+    + Creditor(name: String, debtAmount: double)
+    + getDebtAmount(): double
+    + getName(): String
+    + displayInfo(): void
+}
+@enduml
