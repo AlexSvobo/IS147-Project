@@ -1,3 +1,6 @@
+/**
+ * A class to calculate estimate, draft amount, and program length.
+ */
 public class DraftCalculator {
 
     /**
