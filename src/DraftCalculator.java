@@ -12,8 +12,8 @@ public class DraftCalculator {
      */
     public double provideEstimate(int totalDebt, double FEE_RATE) {
 
-        //Setting estimate to 60%
-        return (totalDebt * 0.6) + (totalDebt*FEE_RATE);
+        //Setting estimate to 50%
+        return (totalDebt * 0.5) + (totalDebt*FEE_RATE);
     }
 
     /**

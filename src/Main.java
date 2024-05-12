@@ -22,23 +22,22 @@ public class Main {
 
         final double FEE_RATE = 0.25;
         int totalDebt = 0;
-        boolean unsecured, hardship;
+        boolean unsecured, hardship, fixedIncome;
         String userInput;
 
         System.out.println("Welcome to the Debt Settlement Qualification Tool!\n----------------------------");
 
-        // Prompt the user to enter their information
         while (totalDebt <= 0) {
             System.out.println("Enter the total debt amount: $");
             if (input.hasNextInt()) {
                 totalDebt = input.nextInt();
-                input.nextLine(); // Consume newline character
+                input.nextLine();
                 if (totalDebt <= 0) {
                     System.out.println("Please enter a positive integer for the debt amount.");
                 }
             } else {
                 System.out.println("Invalid input. Please enter a valid integer.");
-                input.nextLine(); // Consume invalid input
+                input.nextLine();
             }
         }
 
@@ -54,9 +53,9 @@ public class Main {
                     break;
                 default:
                     System.out.println("Invalid input. Please enter Y or N.");
-                    continue; // Continue loop for invalid input
+                    continue;
             }
-            break; // Break the loop for valid input
+            break;
         }
 
         while (true) {
@@ -71,14 +70,34 @@ public class Main {
                     break;
                 default:
                     System.out.println("Invalid input. Please enter Y or N.");
-                    continue; // Continue loop for invalid input
+                    continue;
             }
-            break; // Break the loop for valid input
+            break;
         }
 
+        while (true) {
+            System.out.print("Are you on a fixed income?: Y/N");
+            userInput = input.nextLine();
+            switch (userInput.toUpperCase()) {
+                case "Y":
+                    fixedIncome = true;
+                    break;
+                case "N":
+                    fixedIncome = false;
+                    break;
+                default:
+                    System.out.println("Invalid input. Please enter Y or N.");
+                    continue;
+            }
+            break;
+        }
 
-        boolean qualifies = qualificationTool(totalDebt, unsecured, hardship);
-
+        boolean qualifies;
+        if (fixedIncome) {
+            qualifies = qualificationTool(unsecured, fixedIncome);
+        } else {
+            qualifies = qualificationTool(totalDebt, unsecured, hardship);
+        }
         if (!qualifies) {
             System.out.println("Sorry, you do not qualify for debt settlement assistance based on the provided information.");
             return;
@@ -108,8 +127,6 @@ public class Main {
 
         DraftCalculator calculator = new DraftCalculator();
 
-        //change variables to match a client sided variable that contains their creditors
-        //maybe there is a better way to transfer fee amount so that estimate/draft is accurate
         double estimate = calculator.provideEstimate(totalDebt, FEE_RATE);
         System.out.println("Your estimate is: " + estimate + ", including our fees.");
 
@@ -137,6 +154,11 @@ public class Main {
     private static boolean qualificationTool(int totalDebt, boolean unsecured, boolean hardship){
 
         return totalDebt >= 10000 && unsecured && hardship;
+    }
+
+    private static boolean qualificationTool(boolean unsecured, boolean fixedIncome){
+
+        return unsecured && fixedIncome;
     }
 }
 
