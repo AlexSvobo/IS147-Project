@@ -42,7 +42,7 @@ To use the Debt Settlement Qualification Tool, follow these steps:
 
 ## Documentation
 
-- UML Diagrams and can be found in the [UML Diagrams/](./UML Diagrams/) directory.
+- UML Diagrams and can be found in the [UML Diagrams/](./UML%20Diagrams/) directory.
 - The JavaDocs for this project can be found in the [docs/](./docs/) directory and are available online at [https://alexsvobo.github.io/IS147-Project/docs/package-summary.html](https://alexsvobo.github.io/IS147-Project/docs/package-summary.html).
 
 ## Authors
