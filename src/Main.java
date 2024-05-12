@@ -115,7 +115,7 @@ public class Main {
         }
 
 
-        if (totalDebt<10000){
+        if (totalDebt<10000 && !fixedIncome){
             System.out.println("Sorry, you do not qualify for the program because your total debt amount is below $10,000.");
             return;
         }
@@ -125,19 +125,19 @@ public class Main {
 
         System.out.println("*****************************************");
         System.out.println("Hello, ");
-        System.out.println("Your total debt amount is: " + totalDebt);
+        System.out.println("Your total debt amount is: $" + totalDebt);
 
 
         DraftCalculator calculator = new DraftCalculator();
 
         double estimate = calculator.provideEstimate(totalDebt, FEE_RATE);
-        System.out.println("Your estimate is: " + estimate + ", including our fees.");
+        System.out.println("Your estimate is: $" + estimate + ", including our fees.");
 
         double monthlyDraft = calculator.provideMonthlyDraft(estimate);
         System.out.println("Your monthly draft amount is: $" + monthlyDraft);
 
         double programLength = calculator.provideProgramLength(monthlyDraft, estimate);
-        System.out.println("Your program length is: " + programLength + "months.");
+        System.out.println("Your program length is: " + programLength + " months.");
 
 
         System.out.println("Your creditors:");
@@ -159,6 +159,13 @@ public class Main {
         return totalDebt >= 10000 && unsecured && hardship;
     }
 
+    /**
+     * Checks if the user qualifies for debt settlement based on unsecured debts, and fixed income.
+     *
+     * @param unsecured Whether the debts are unsecured.
+     * @param fixedIncome  Whether the user receives fixed income.
+     * @return true if the user qualifies, false otherwise.
+     */
     private static boolean qualificationTool(boolean unsecured, boolean fixedIncome){
 
         return unsecured && fixedIncome;

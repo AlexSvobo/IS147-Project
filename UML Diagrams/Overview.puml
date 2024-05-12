@@ -1,8 +1,11 @@
 @startuml
 package "Main Package" {
     class Main {
+        -input: Scanner
+        -currentDate: Date
         + main(args: String[]): void
         - qualificationTool(totalDebt: int, unsecured: boolean, hardship: boolean): boolean
+        - qualificationTool(unsecured:boolean, fixedIncome:boolean): boolean
     }
 }
 
@@ -11,9 +14,12 @@ package "Credit Management" {
         + enterCreditorInformation(sc: Scanner): List<Creditor>
     }
     class Creditor {
-        + Creditor(name: String, debtAmount: double)
-        + getName(): String
-        + getDebtAmount(): double
+        - name: String
+                - debtAmount: double
+                + Creditor(name: String, debtAmount: double)
+                + getName(): String
+                + getDebtAmount(): double
+                + setDebtAmount(): double
     }
     class CreditorEntity {
         - name: String
