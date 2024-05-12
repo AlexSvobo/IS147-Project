@@ -6,6 +6,7 @@
  */
 import java.util.List;
 import java.util.Scanner;
+import java.util.Date;
 
 /**
  * A class containing the main method to run the debt settlement qualification tool.
@@ -19,12 +20,14 @@ public class Main {
      */
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
+        Date currentDate = new Date();
 
         final double FEE_RATE = 0.25;
         int totalDebt = 0;
         boolean unsecured, hardship, fixedIncome;
         String userInput;
 
+        System.out.printf("\nCurrent Date: %tc%n", currentDate);
         System.out.println("Welcome to the Debt Settlement Qualification Tool!\n----------------------------");
 
         while (totalDebt <= 0) {
