@@ -11,11 +11,12 @@ package "Credit Management" {
         + enterCreditorInformation(sc: Scanner): List<Creditor>
     }
     class Creditor {
-        - name: String
-        - debtAmount: double
         + Creditor(name: String, debtAmount: double)
         + getName(): String
         + getDebtAmount(): double
+    }
+    class CreditorEntity {
+        - name: String
     }
 }
 
@@ -37,6 +38,7 @@ Main --> qualificationTool
 
 CreditorManager --> Scanner
 CreditorManager --> Creditor
+Creditor --> CreditorEntity
 
 DraftCalculator --> Creditor
 
