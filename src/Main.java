@@ -45,23 +45,35 @@ public class Main {
         while (true) {
             System.out.print("Are you seeking help with unsecured debts?: Y/N");
             userInput = input.nextLine();
-
-            if (userInput.equalsIgnoreCase("Y") || userInput.equalsIgnoreCase("N")) {
-                unsecured = userInput.equalsIgnoreCase("Y");
-                break;
-            } else {
-                System.out.println("Invalid input. Please enter Y or N.");
+            switch (userInput.toUpperCase()) {
+                case "Y":
+                    unsecured = true;
+                    break;
+                case "N":
+                    unsecured = false;
+                    break;
+                default:
+                    System.out.println("Invalid input. Please enter Y or N.");
+                    continue; // Continue loop for invalid input
             }
+            break; // Break the loop for valid input
         }
+
         while (true) {
             System.out.print("Have you experienced any financial hardship?: Y/N");
             userInput = input.nextLine();
-            if (userInput.equalsIgnoreCase("Y") || userInput.equalsIgnoreCase("N")) {
-                hardship = userInput.equalsIgnoreCase("Y");
-                break;
-            } else {
-                System.out.println("Invalid input. Please enter Y or N.");
+            switch (userInput.toUpperCase()) {
+                case "Y":
+                    hardship = true;
+                    break;
+                case "N":
+                    hardship = false;
+                    break;
+                default:
+                    System.out.println("Invalid input. Please enter Y or N.");
+                    continue; // Continue loop for invalid input
             }
+            break; // Break the loop for valid input
         }
 
 
