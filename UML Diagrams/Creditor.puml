@@ -6,6 +6,5 @@ class Creditor extends CreditorEntity {
     + Creditor(name: String, debtAmount: double)
     + getDebtAmount(): double
     + getName(): String
-    + displayInfo(): void
 }
 @enduml
