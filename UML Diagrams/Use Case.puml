@@ -1,0 +1,29 @@
+@startuml
+left to right direction
+actor User as "User"
+actor System as "Debt Settlement\nQualification Tool"
+
+rectangle "Use Cases" {
+    User --> (Run Tool)
+    User --> (Enter Total Debt Amount)
+    User --> (Seek Help with\nUnsecured Debts)
+    User --> (Experienced\nFinancial Hardship)
+    User --> (On Fixed Income)
+    System --> (Validate Total Debt)
+    System --> (Store Total Debt)
+    System --> (Validate Unsecured Debts)
+    System --> (Store Unsecured Debts)
+    System --> (Validate Financial Hardship)
+    System --> (Store Financial Hardship)
+    System --> (Validate Fixed Income)
+    System --> (Store Fixed Income)
+    System --> (Qualification Tool)
+    System --> (Enter Creditor Information)
+    System --> (Calculate Total Debt)
+    System --> (Check Qualification)
+    System --> (Calculate Estimate)
+    System --> (Calculate Monthly Draft)
+    System --> (Calculate Program Length)
+    System --> (Display Program Details)
+}
+@enduml

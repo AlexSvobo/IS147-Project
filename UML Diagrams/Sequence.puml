@@ -1,0 +1,54 @@
+@startuml
+actor User
+participant Main
+participant CreditorManager
+participant Creditor
+participant DraftCalculator
+
+User -> Main: Run tool
+activate Main
+
+Main -> User: Display welcome message
+Main -> User: Ask for total debt amount
+activate User
+
+User -> Main: Enter total debt amount
+Main -> Main: Validate and store total debt
+Main -> User: Ask if seeking help with unsecured debts
+activate User
+
+User -> Main: Answer if seeking help with unsecured debts
+Main -> Main: Validate and store unsecured debts status
+Main -> User: Ask if experienced financial hardship
+activate User
+
+User -> Main: Answer if experienced financial hardship
+Main -> Main: Validate and store financial hardship status
+Main -> User: Ask if on a fixed income
+activate User
+
+User -> Main: Answer if on a fixed income
+Main -> Main: Validate and store fixed income status
+Main -> Main: Determine if user qualifies for debt settlement
+Main -> CreditorManager: Enter creditor information
+activate CreditorManager
+
+CreditorManager -> Main: Provide list of creditors
+Main -> Main: Calculate total debt amount from creditors
+Main -> Main: Check if total debt qualifies for program
+Main -> DraftCalculator: Calculate estimate
+activate DraftCalculator
+
+DraftCalculator -> Main: Provide estimate
+Main -> Main: Calculate monthly draft amount
+Main -> Main: Calculate program length
+Main -> User: Display program details and creditors
+deactivate User
+
+Main -> DraftCalculator: Display calculations
+Main -> CreditorManager: Display creditors
+deactivate CreditorManager
+Main -> Main: End tool
+deactivate Main
+
+@enduml

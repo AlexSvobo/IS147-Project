@@ -1,0 +1,26 @@
+@startuml
+
+' Activity Diagram
+start
+:Enter Total Debt Amount;
+if (Seek Help with Unsecured Debts?) then (Yes)
+    :Enter Creditor Information;
+elseif (Experienced Financial Hardship?) then (Yes)
+    :Enter Creditor Information;
+elseif (On Fixed Income?) then (Yes)
+    :Enter Creditor Information;
+else (No)
+    :Do Nothing;
+endif
+:Check Qualification;
+if (Qualifies?) then (Yes)
+    :Calculate Estimate;
+    :Calculate Monthly Draft;
+    :Calculate Program Length;
+    :Display Program Details;
+else (No)
+    :Display Not Qualified Message;
+endif
+stop
+
+@enduml
